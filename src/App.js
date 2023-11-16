@@ -31,7 +31,7 @@ import DDSContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/co
 // import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js';
 // import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container.js';
 
-import HomePage from './pages/home';
+import HomePage from './pages/Home';
 import WatsonxPage from './pages/watsonx-page';
 import PageDetails from './pages/PageDetails';
 

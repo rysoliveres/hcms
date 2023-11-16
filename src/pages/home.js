@@ -39,7 +39,7 @@ const HomePage = () => {
             </DDSButtonGroup>
             <dds-background-media slot="image" opacity="100">
                 <dds-video-player-container
-                    video-id="1_b8h0gxj9"
+                    video-id="1_o4dujnxc"
                     href="banner_video_dancing.mp4"
                     background-mode="true"></dds-video-player-container>
                 <iframe>

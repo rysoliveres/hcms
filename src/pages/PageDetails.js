@@ -22,7 +22,7 @@ import DDSContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/co
 import { ArrowRight } from "@carbon/icons-react";
 
 import { Airplane } from "@carbon/pictograms-react";
-import MastheadLinks from '../utilities/masthead-links';
+import {MastheadLinks, l1Data} from '../utilities/masthead-links';
 import Slice3CP from "../sections/Slice3CP";
 
 const DOMPurify = createDOMPurify(window)
@@ -83,7 +83,7 @@ const PageDetails = () => {
 
   // Query from WPGraphQL using ID variable
   const { data, loading, error } = useQuery(GET_PAGE, { variables: { id: queryId } },)
-
+ 
   if (loading) {
     return <p>Loading</p>
   }
@@ -98,35 +98,30 @@ const PageDetails = () => {
   console.log(pageContent)
 
   // Render list of pages in the menu
-  document.querySelector('dds-masthead-composite').l1Data = MastheadLinks;
+  document.querySelector('dds-masthead-composite').l1Data = l1Data;
 
-function RenderFootnotes(props)
-{
+  function RenderLeadspace()
+  {
 
-  return (     
-    <DDSContentBlock class="footnote" id="pageFootnotesContainer">
+  }
 
-
-
-
-
-<div class="bx--grid">
-                <div class="bx--row">
-                    <div class="bx--col-lg-4">
-                        <DDSContentItemHeading class="footnote-heading">Footnotes</DDSContentItemHeading>
-                    </div>
-                    <div class="bx--col-lg-8">
-                        <DDSContentItemHorizontalCopy class="footnote-content">
-
-                          <DDSContenttem>   <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(props.data) }} /> </DDSContenttem>
-                          
-                        </DDSContentItemHorizontalCopy>
-                    </div>
-                </div>
+  function RenderFootnotes(props) {
+    return (
+      <DDSContentBlock class="footnote" id="pageFootnotesContainer">
+        <div class="bx--grid">
+          <div class="bx--row">
+            <div class="bx--col-lg-4">
+              <DDSContentItemHeading class="footnote-heading">Footnotes</DDSContentItemHeading>
             </div>
-
-  </DDSContentBlock>)
-}
+            <div class="bx--col-lg-8">
+              <DDSContentItemHorizontalCopy class="footnote-content">
+                <DDSContenttem>   <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(props.data) }} /> </DDSContenttem>
+              </DDSContentItemHorizontalCopy>
+            </div>
+          </div>
+        </div>
+      </DDSContentBlock>)
+  }
 
   return (
     pageContent.map(item => {
@@ -146,6 +141,7 @@ function RenderFootnotes(props)
 
       return (
         <>
+
           <DDSLeadspace size="medium" class="dds-theme-zone-g10" key={databaseId}>
             <DDSLeadspaceHeading> {pageHeadline}
             </DDSLeadspaceHeading>
@@ -159,21 +155,21 @@ function RenderFootnotes(props)
                 </DDSButtonGroupItem>
               </DDSButtonGroup>
             }
-          
-          {pageBanner.mediatype == "Image" &&
-          <DDSBackgroundMedia
-              slot="image"
-              default-src={pageBannerMedia}
-              alt="Image alt text"
-              opacity="100">
-              <DDSImageItem
-                media="(min-width: 672px)"
-                srcset={pageBannerMedia}></DDSImageItem>
-              <DDSImageItem
-                media="(min-width: 0)"
-                srcset={pageBannerMedia}></DDSImageItem>
-            </DDSBackgroundMedia>
-          }
+
+            {pageBanner.mediatype == "Image" &&
+              <DDSBackgroundMedia
+                slot="image"
+                default-src={pageBannerMedia}
+                alt="Image alt text"
+                opacity="100">
+                <DDSImageItem
+                  media="(min-width: 672px)"
+                  srcset={pageBannerMedia}></DDSImageItem>
+                <DDSImageItem
+                  media="(min-width: 0)"
+                  srcset={pageBannerMedia}></DDSImageItem>
+              </DDSBackgroundMedia>
+            }
           </DDSLeadspace>
 
           <div class="table-of-contents container responsivegrid">
@@ -183,10 +179,9 @@ function RenderFootnotes(props)
               </div>
             </DDSTableOfContents>
           </div>
-
-    
-
-          <RenderFootnotes data={pageFootnotesContent}/>
+          
+          <RenderFootnotes data={pageFootnotesContent} />
+          <MastheadLinks/>
         </>
       )
     })
@@ -197,6 +192,6 @@ function RenderFootnotes(props)
 
 export default PageDetails;
 
-  {/* <Slice3CP name="Airplane"/>
+{/* <Slice3CP name="Airplane"/>
 
   <Slice3CP name="ConnectedEcosystem"/> */}
