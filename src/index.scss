@@ -1,0 +1,122 @@
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
+@import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
+@import '@carbon/ibmdotcom-styles/scss/components/content-item-horizontal/content-item-horizontal';
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.footnote, :host(dds-content-item-horizontal) ::slotted([slot="heading"])
+{
+  font-size: 1rem !important;
+}
+
+.footnote .bx--grid
+{
+width: 100% !important;
+}
+
+.bx--tableofcontents__contents
+{
+  padding-top: 4rem;
+}
+
+// .bx--content-item-horizontal__item, :host(dds-content-item-horizontal)
+// {
+//   background-color: red !important;
+// }
+// .bx--content-item-horizontal__item--heading, :host(dds-content-item-horizontal) ::slotted([slot="heading"])
+// {
+//   color: red !important;
+// }
+
+// :host(dds--button-group)
+// {
+//   background-color: red !important;
+// }
+
+.bx--masthead__l1-name-title a
+{
+  
+  }
+.bx--masthead__l1-cta
+{
+  background-color: red !important;
+}
+
+.bx--masthead__l1-name-title
+{
+  color: red !important;
+  background: red !important;
+}
+
+.footnote
+{
+  padding-bottom: 4rem !important;
+  
+}
+.footnote-heading
+{
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.footnote-content p
+{
+  font-size: 0.75rem;
+  line-height: 1.3em;
+}
+
+.footnote dds-content-item
+{
+  margin-top: 0px !important;
+}
+
+.enhanced-title, .enhanced-title-blue
+{
+font-size: 76px !important;
+}
+
+.enhanced-title
+{
+  font-weight: 250;
+  line-height: 1;
+
+}
+
+.enhanced-title-blue
+{
+  color: #0f62fe !important;
+}
+
+.hasNavigation
+{
+  padding-top: 3rem;
+}
+
+:host(bx-header-nav-item), :host(dds-top-nav-item) a
+{
+font-size: 16px !important;
+}
+
+
+dds--masthead__l1-nav--nav4
+{
+  background-color: red;
+}
+dds-top-nav-item a.bx--header__menu-item
+{
+  color: red !important;
+
+}
