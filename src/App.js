@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 
 // import { Route, Routes, HashRouter, Link, NavLink } from 'react-router-dom' //Use Routes instead of Switch
-import { Route, Routes, useParams } from 'react-router-dom'; //Use Routes instead of Switch
+import { Route, Routes, useParams, HashRouter} from 'react-router-dom'; //Use Routes instead of Switch
 import { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { WebChatContainer, setEnableDebug } from '@ibm-watson/assistant-web-chat-react';
