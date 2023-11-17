@@ -1,12 +1,12 @@
 
 const l1Data = {
   title: 'watsonx',
-  url: '/watsonx',
+  url: '#/page/48',
   menuItems: [
     {
       title: 'watsonx.ai',
       titleEnglish: 'watsonx.ai',
-      url: '/watsonx',
+      url: '#/watsonx',
       class: 'test',
 
     },

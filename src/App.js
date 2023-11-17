@@ -90,13 +90,10 @@ function App() {
 
   return (
 
-    <HashRouter basename="/">
+  
       <div className="App">
-        <Route exact path="/" element={<HomePage />} />
-        <Route path="/page/:id" element={<PageDetails />} />
-        <Route path="/watsonx" element={<WatsonxPage />} />
         <WebChatContainer config={webChatOptions} />
-      </div></HashRouter>
+      </div>
   );
 }
 export default App;

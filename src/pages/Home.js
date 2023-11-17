@@ -55,7 +55,7 @@ const HomePage = () => {
                     <a name="2" data-title="Part 2: Walkthrough"></a>
                     <DDSContentBlockHeading>Get your head in the game</DDSContentBlockHeading>
                     <p>Section 2 content</p>
-                    <dds-card-in-card href="/page/48">
+                    <dds-card-in-card href="#/page/48">
                         <dds-card-in-card-image
                             slot="image"
                             alt="Image alt text"
