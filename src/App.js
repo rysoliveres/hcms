@@ -89,17 +89,14 @@ function App() {
   })
 
   return (
-    <div className="App">
-      <WebChatContainer config={webChatOptions} />
-    </div>
-  );
-}
-export default App;
 
-{/* 
-      <Routes>
-        <Route path="*" element={<HomePage />} />
+    <HashRouter basename="/">
+      <div className="App">
         <Route exact path="/" element={<HomePage />} />
         <Route path="/page/:id" element={<PageDetails />} />
         <Route path="/watsonx" element={<WatsonxPage />} />
-      </Routes> */}
+        <WebChatContainer config={webChatOptions} />
+      </div></HashRouter>
+  );
+}
+export default App;
