@@ -120,3 +120,44 @@ dds-top-nav-item a.bx--header__menu-item
   color: red !important;
 
 }
+
+.bx--cta-block, :host(dds-cta-block) {
+  padding-top: 2rem;
+}
+
+dds-pictogram-item
+{
+  width: 100px !important;
+  height: 100px !important;
+}
+
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 0.7rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.skeleton-text__body {
+  width: 75%;
+}
+
+.skeleton-footer {
+  width: 30%;
+}
+

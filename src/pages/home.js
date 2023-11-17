@@ -23,6 +23,7 @@ const HomePage = () => {
     }, [])
 
     const HideMasthead = () => {
+
     }
 
     return (
@@ -30,12 +31,7 @@ const HomePage = () => {
             <DDSLeadspaceHeading>Go on. Leave me headless
             </DDSLeadspaceHeading>
             Easily deploy and embed AI across your business, manage all data sources, and accelerate responsible AI workflows—all on one platform
-            <DDSButtonGroup slot="action">
-                <DDSButtonGroupItem>Start your free trial<ArrowRight />
-                </DDSButtonGroupItem>
-                <DDSButtonGroupItem>Book a live demo<ArrowRight />
-                </DDSButtonGroupItem>
-            </DDSButtonGroup>
+            
             <dds-background-media slot="image" opacity="100">
                 <dds-video-player-container
                     video-id="1_o4dujnxc"
@@ -59,7 +55,7 @@ const HomePage = () => {
                     <a name="2" data-title="Part 2: Walkthrough"></a>
                     <DDSContentBlockHeading>Get your head in the game</DDSContentBlockHeading>
                     <p>Section 2 content</p>
-                    <dds-card-in-card href="/watsonx">
+                    <dds-card-in-card href="/page/48">
                         <dds-card-in-card-image
                             slot="image"
                             alt="Image alt text"

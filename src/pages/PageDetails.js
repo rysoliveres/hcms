@@ -22,8 +22,9 @@ import DDSContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/co
 import { ArrowRight } from "@carbon/icons-react";
 
 import { Airplane } from "@carbon/pictograms-react";
-import {MastheadLinks, l1Data} from '../utilities/masthead-links';
+import MastheadLinks from '../utilities/masthead-links';
 import Slice3CP from "../sections/Slice3CP";
+import SkeletonLoading from "../utilities/skeleton-loading";
 
 const DOMPurify = createDOMPurify(window)
 
@@ -69,6 +70,29 @@ const PageDetails = () => {
                   ctaurl
                 }
               }
+              pageSections {
+                connectToSections {
+                  ... on Slice3CP {
+                    id
+                    databaseId
+                    contentTypeName
+                    sectionTitle
+                    sectionDisplayName
+                    sectionHeadline
+                    sectionDescription
+                  }
+                  ... on SliceCTA {
+                    id
+                    databaseId
+                    contentTypeName
+                    sectionTitle
+                    sectionDisplayName
+                    sectionHeadline
+                    sectionDescription
+                
+                  }
+                }
+              }
               pageFootnotes {
                 pagefootnotes
               }
@@ -83,9 +107,9 @@ const PageDetails = () => {
 
   // Query from WPGraphQL using ID variable
   const { data, loading, error } = useQuery(GET_PAGE, { variables: { id: queryId } },)
- 
+
   if (loading) {
-    return <p>Loading</p>
+    return <SkeletonLoading/>
   }
 
   if (error) {
@@ -98,12 +122,7 @@ const PageDetails = () => {
   console.log(pageContent)
 
   // Render list of pages in the menu
-  document.querySelector('dds-masthead-composite').l1Data = l1Data;
-
-  function RenderLeadspace()
-  {
-
-  }
+  document.querySelector('dds-masthead-composite').l1Data = MastheadLinks;
 
   function RenderFootnotes(props) {
     return (
@@ -125,7 +144,7 @@ const PageDetails = () => {
 
   return (
     pageContent.map(item => {
-      const { databaseId, pageTitle, pageHeadline, pageDescription, pageBanner, pageFootnotes, pageCTAButtons } = item.node
+      const { databaseId, pageTitle, pageHeadline, pageDescription, pageBanner, pageFootnotes, pageCTAButtons, pageSections } = item.node
       const pageCTAButtonsItem1 = pageCTAButtons.ctaitem1
       const pageCTAButtonsItem2 = pageCTAButtons.ctaitem2
       let pageFootnotesContent
@@ -139,9 +158,41 @@ const PageDetails = () => {
         pageFootnotesContent = pageFootnotes.pagefootnotes
       }
 
+      function RenderSection(type, id) {
+        console.log(type)
+        if (type == "slice3cp") {
+          return (
+            <Slice3CP id={id} />
+          )
+        }
+        if (type == "slicecta") {
+ 
+        }
+        if (type == "slicetab")
+        {
+
+        }
+        if (type == "slice")
+        {
+
+        }
+      }
+
+      const tableOfContentsHTML = pageSections.connectToSections.map(item => {
+        return (
+          <dds-cta-block >
+            <a name={item.databaseId} data-title={item.sectionDisplayName}></a>
+            <dds-content-block-heading slot="heading">{item.sectionHeadline}</dds-content-block-heading>
+            {item.sectionDescription != null &&
+               <dds-content-item-copy slot="copy">{item.sectionDescription}</dds-content-item-copy>
+            }
+            {RenderSection(item.contentTypeName, item.databaseId)}
+          </dds-cta-block>
+        )
+      })
+
       return (
         <>
-
           <DDSLeadspace size="medium" class="dds-theme-zone-g10" key={databaseId}>
             <DDSLeadspaceHeading> {pageHeadline}
             </DDSLeadspaceHeading>
@@ -175,20 +226,16 @@ const PageDetails = () => {
           <div class="table-of-contents container responsivegrid">
             <DDSTableOfContents class="">
               <div className="bx--tableofcontents__contents">
-
+                {tableOfContentsHTML}
               </div>
             </DDSTableOfContents>
           </div>
-          
           <RenderFootnotes data={pageFootnotesContent} />
-          <MastheadLinks/>
         </>
       )
     })
   )
 }
-
-
 
 export default PageDetails;
 
