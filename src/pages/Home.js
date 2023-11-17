@@ -34,7 +34,7 @@ const HomePage = () => {
             
             <dds-background-media slot="image" opacity="100">
                 <dds-video-player-container
-                    video-id="1_o4dujnxc"
+                    video-id="1_ixmv5wsn"
                     href="banner_video_dancing.mp4"
                     background-mode="true"></dds-video-player-container>
                 <iframe>
